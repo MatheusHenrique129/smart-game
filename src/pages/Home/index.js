@@ -2,6 +2,7 @@ import {
   CardContainer,
   Container,
   Content,
+  Footer,
   GameCard,
   Header,
   Logo,
@@ -14,22 +15,22 @@ import Modal from "../../components/Modal";
 import { api } from "../../services/api";
 import { useHistory } from "react-router-dom";
 
-function Game({ game }) {
+function Game() {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    setGames(game.Home);
+   
   });
 
   return (
     <GameCard>
       <div>
-        <img src={game.Game.image || logo} alt="Imagem do jogo" />
+        <img src={ logo} alt="Imagem do jogo" />
       </div>
       <section>
-        <strong>{game.name}</strong>
-        <p>{game.price}</p>
-        <button>Ver Mais</button>
+        <strong>God of war III</strong>
+        <p>R$ 200,00</p>
+        <button>Mais Detalhes</button>
       </section>
     </GameCard>
   );
@@ -81,11 +82,26 @@ function Home() {
         </Header>
         <Content>
           <CardContainer ref={cardRef} onScroll={cardScrollObserver}>
-            {games.map((g) => (
-              <Game key={g.id} game={g} />
-            ))}
+           
+              <Game />
+
+              <Game />
+
+              <Game />
+
+              <Game />
+
+              <Game />
+
+              <Game />
+
+              <Game />
+
+              <Game />
+          
           </CardContainer>
         </Content>
+        <Footer></Footer>
       </Container>
     </>
   );
