@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 import { useRef, useEffect } from "react";
 
-function Alert({ message, type, handleClose }) {
+function Alert({ message, handleClose }) {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function Alert({ message, type, handleClose }) {
   }, [message]);
 
   return (
-    <Container type={type} ref={containerRef}>
+    <Container ref={containerRef}>
       {message && (
         <>
           <span onClick={() => handleClose(undefined)}>&times;</span>

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    background-color: var(--dark);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--dark);
 `;
 
 export const Header = styled.header`
@@ -15,7 +15,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #F3535399;
+  background-color: #f35353;
 `;
 
 export const Logo = styled.img`
@@ -35,9 +35,9 @@ export const Logo = styled.img`
 export const Content = styled.div`
   width: 1280px;
   padding-top: 60px;
-background-color: aqua;
-margin-left: auto;
-margin-right: auto;
+  background-color: aqua;
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
   grid-template-columns: 20% 60% 20%;
 `;

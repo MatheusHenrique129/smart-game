@@ -7,7 +7,7 @@ function Modal({ title, children, handleClose }) {
       <ModalContainer>
         <span onClick={handleClose}>&times;</span>
         <header>{title}</header>
-        <img src={children}/>
+        <img src={children} />
         {children}
       </ModalContainer>
     </Overlay>

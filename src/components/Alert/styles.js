@@ -6,11 +6,10 @@ export const Container = styled.div`
   right: 0;
   height: 80px;
   margin: 10px;
+  z-index: 99;
   border-radius: 4px;
   transition: width 0.4s;
-  background-color: ${(props) =>
-    props.type === "error" ? "#d90429cc;" : "#04d929cc"};
-
+  background-color: #04d929cc;
   whitespace: nowrap;
   overflow: hidden;
 

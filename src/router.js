@@ -9,7 +9,6 @@ function Router() {
         <Route exact path="/">
           <Home />
         </Route>
-
       </Switch>
     </BrowserRouter>
   );
