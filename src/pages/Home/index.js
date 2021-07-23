@@ -8,12 +8,13 @@ import {
   Logo,
 } from "./styles";
 
-import logo from "../../assets/smart_logo.png";
+import logo from "../../assets/image.webp";
 import { useEffect, useRef, useState } from "react";
 import Alert from "../../components/Alert";
 import Modal from "../../components/Modal";
 import { api } from "../../services/api";
 import { useHistory } from "react-router-dom";
+import InputSearch from "../../components/InputSearch";
 
 function Game() {
   const [games, setGames] = useState([]);
@@ -30,7 +31,9 @@ function Game() {
       <section>
         <strong>God of war III</strong>
         <p>R$ 200,00</p>
-        <button>Mais Detalhes</button>
+        <div>
+          <button>DETALHES</button>
+        </div>
       </section>
     </GameCard>
   );
@@ -79,6 +82,7 @@ function Home() {
       <Container>
         <Header>
           <Logo src={logo} />
+          <InputSearch/>
         </Header>
         <Content>
           <CardContainer ref={cardRef} onScroll={cardScrollObserver}>
@@ -98,10 +102,26 @@ function Home() {
               <Game />
 
               <Game />
+
+              <Game />
+
+<Game />
+
+<Game />
+
+<Game />
+
+<Game />
+
+<Game />
+
+<Game />
+
+<Game />
           
           </CardContainer>
+          <Footer></Footer>
         </Content>
-        <Footer></Footer>
       </Container>
     </>
   );

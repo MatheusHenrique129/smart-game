@@ -9,8 +9,8 @@ export const Container = styled.div`
   z-index: 99;
   border-radius: 4px;
   transition: width 0.4s;
-  background-color: #04d929cc;
-  whitespace: nowrap;
+  background-color: #04d929;
+  white-space: nowrap;
   overflow: hidden;
 
   > h1 {
