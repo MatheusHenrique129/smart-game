@@ -7,7 +7,7 @@ export const Overlay = styled.div`
   display: flex;
   position: absolute;
   align-items: center;
-  background-color: #333c;
+  background-color: #f5f5f5cc;
   justify-content: center;
 `;
 
@@ -15,10 +15,11 @@ export const ModalContainer = styled.section`
   z-index: 19;
   padding: 20px;
   overflow-y: auto;
-  width: 85%;
-  height: 85vh;
+  width: 75%;
+  height: 80vh;
   min-width: 500px;
   min-height: 250px;
+  padding: 8px;
   position: relative;
   border-radius: 4px;
   border: 1px solid #fff;
@@ -30,7 +31,7 @@ export const ModalContainer = styled.section`
     top: 15px;
     right: 20px;
     color: #fff;
-    font-size: 30px;
+    font-size: 2em;
     cursor: pointer;
     transition: 0.2s;
     position: absolute;
@@ -41,7 +42,7 @@ export const ModalContainer = styled.section`
   }
 
   > header {
-    font-size: 24px;
+    font-size: 2.3em;
     margin: 0px 20px;
     font-weight: bold;
     text-align: center;

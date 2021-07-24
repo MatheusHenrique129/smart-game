@@ -15,10 +15,10 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #f35353;
+  background-color: #563434;
 
-  >p{
-    color: #FFF;
+  > p {
+    color: #fff;
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
@@ -42,28 +42,79 @@ export const Logo = styled.img`
 
 export const Content = styled.div`
   width: 1300px;
-  padding: 10px 0px;
-  overflow-y: auto;  
+  padding: 0px 10px 0px 10px;
+  overflow-y: auto;
   margin-top: 55px;
-  
+`;
+
+export const ContentModal = styled.div`
+  display: grid;
+  grid-template-areas: "image image description description" "image image platform price" "image image store price";
+
+  gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  background-color: azure;
+
+  > img {
+    width: 340px;
+    max-height: 750px;
+    grid-area: image;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #000;
+  }
+`;
+
+export const Description = styled.div`
+  grid-area: description;
+  background-color: aqua;
+`;
+
+export const HoldText = styled.div`
+  padding: 20px;
+  background-color: blueviolet;
+`;
+
+export const StoresModal = styled.div`
+  grid-area: store;
+  background-color: antiquewhite;
+
+  > h3 {
+    transition: 0.2s;
+    cursor: pointer;
+
+    :hover {
+      color: var(--light);
+    }
+
+    :active {
+      transform: scale(0.95);
+    }
+  }
 `;
 
 export const CardContainer = styled.div`
-  padding: 10px 0px;
+  padding: 10px;
   overflow-y: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
-    grid-template-columns: 25% 25% 25%;
-
+  grid-template-columns: 25% 25% 25% 25%;
+  background-color: #15181dee;
 `;
 
 export const GameCard = styled.article`
-  width: 80%;
-  margin: 10px 20px 10px 20px;
+  width: 93%;
+  margin: 20px 50px 20px 20px;
   border-radius: 4px;
-  
+  transition: transform 450ms;
+
+  :hover {
+    transform: scale(1.08);
+    /* box-shadow: 0px 0px 50px 15px #fff; */
+  }
+
   > div {
     gap: 10px;
     border-radius: 4px;
@@ -80,9 +131,6 @@ export const GameCard = styled.article`
   > section {
     margin-top: 8px;
     padding: 10px;
-
-    
-
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -90,32 +138,25 @@ export const GameCard = styled.article`
     > strong {
       color: #f12354;
       font-size: 1.6em;
-      margin-top: -70px;
-      margin-bottom: 27px;
       text-align: center;
-
-
-      /* box-shadow: 0px 0px 50px 15px var(--dark); */
     }
 
     > p {
       color: #fff;
-      font-size: 1.8em;
+      font-size: 1.3em;
       font-weight: 600;
       padding: 10px 10px;
       border-left: 2px solid var(--primary);
     }
 
     > div {
-      background-color: brown;
       display: flex;
-      align-items: flex-end;
-      justify-content: right;
+      align-items: center;
+      justify-content: center;
     }
 
-    >  button {
-      width: 100px;
-      border: none;
+    > button {
+      width: 250px;
       font-style: italic;
     }
   }

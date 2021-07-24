@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   > input {
     border: 0;
-    padding-left: 35px;
+    padding-left: 45px;
     padding-right: 10px;
     border-radius: 3px;
     font-family: sans-serif;
@@ -17,7 +17,6 @@ export const Container = styled.div`
     height: 40px;
     font-size: 16px;
     transition: width 0.4s ease-in-out;
-
   }
 
   > input:focus {

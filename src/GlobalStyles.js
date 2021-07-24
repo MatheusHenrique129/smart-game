@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import fundo from "./assets/fundo.jpg";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -15,6 +16,13 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     outline: 0;    
     box-sizing: border-box;
+  }
+
+  body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url(${fundo});
   }
 
   ::-webkit-scrollbar{
