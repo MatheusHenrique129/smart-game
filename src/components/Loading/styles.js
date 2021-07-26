@@ -8,6 +8,7 @@ const spin = keyframes`
 `;
 
 export const Container = styled.div`
+  color: #fff;
   z-index: 99;
   width: 100vw;
   height: 100vh;

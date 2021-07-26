@@ -54,7 +54,6 @@ export const ContentModal = styled.div`
   margin-left: auto;
   margin-right: auto;
   align-items: center;
-  background-color: azure;
 
   > img {
     width: 340px;
@@ -67,12 +66,10 @@ export const ContentModal = styled.div`
 
 export const Description = styled.div`
   grid-area: description;
-  background-color: aqua;
 `;
 
 export const GameInfo = styled.div`
   padding: 20px;
-  background-color: blueviolet;
 `;
 
 export const StoresModal = styled.div`
@@ -90,6 +87,43 @@ export const StoresModal = styled.div`
     :active {
       transform: scale(0.95);
     }
+  }
+`;
+
+export const PlatformModal = styled.div`
+  grid-area: platform;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+`;
+
+export const PriceModal = styled.div`
+  grid-area: price;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-areas: "code code" "button text";
+
+  > button {
+    color: #fff;
+    height: 50px;
+    grid-area: button;
+    background-color: #04d929;
+  }
+
+  > h1 {
+    grid-area: text;
+    background-color: #000000;
+    padding: 5px;
+    border-radius: 0 5px 5px 0;
+  }
+
+  > img {
+    grid-area: code;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -170,10 +204,25 @@ export const GameCard = styled.article`
 `;
 
 export const Footer = styled.footer`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: #fff;
   width: 100%;
-  background-color: #000000;
-  padding: 30px 0;
+  display: flex;
+  padding: 30px 0px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--darkGray);
+`;
+
+export const FooterContent = styled.div`
+  width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+`;
+
+export const FooterInfo = styled.div`
+  flex: 1;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
 `;

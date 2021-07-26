@@ -1,4 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const Animation = keyframes`
+0%{
+    opacity: 0;
+    top: -250px;
+    transform: scale(0.01);
+  }
+  100%{
+    top: 0px;
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 export const Overlay = styled.div`
   z-index: 9;
@@ -7,11 +20,12 @@ export const Overlay = styled.div`
   display: flex;
   position: absolute;
   align-items: center;
-  background-color: #f5f5f5cc;
+  background-color: #2b2e35cc;
   justify-content: center;
 `;
 
 export const ModalContainer = styled.section`
+  color: #fff;
   z-index: 19;
   padding: 20px;
   overflow-y: auto;
@@ -23,6 +37,7 @@ export const ModalContainer = styled.section`
   position: relative;
   border-radius: 4px;
   border: 1px solid #fff;
+  animation: ${Animation} 0.8s;
   background-color: var(--dark);
   max-height: calc(100vh - 20px);
   box-shadow: 0px 0px 10px black;

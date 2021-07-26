@@ -1,12 +1,13 @@
 import { Container } from "./styles";
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-function Alert({ message, handleClose }) {
+function Alert({ message, type, handleClose }) {
   const containerRef = useRef();
 
   useEffect(() => {
     if (message) {
       containerRef.current.style.width = "300px";
+
       setTimeout(() => {
         handleClose(undefined);
       }, 5000);
@@ -16,7 +17,7 @@ function Alert({ message, handleClose }) {
   }, [message]);
 
   return (
-    <Container ref={containerRef}>
+    <Container type={type} ref={containerRef}>
       {message && (
         <>
           <span onClick={() => handleClose(undefined)}>&times;</span>

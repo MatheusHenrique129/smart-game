@@ -2,16 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: absolute;
-  top: 0;
+  top: 100;
   right: 0;
+  width: 0px;
   height: 80px;
   margin: 10px;
-  z-index: 99;
-  border-radius: 4px;
+  gap: 10px;
   transition: width 0.4s;
-  background-color: #04d929;
+  background-color: ${(props) =>
+    props.type === "error" ? "#d90429cc" : "#04d929cc"};
+  border-radius: 5px;
   white-space: nowrap;
   overflow: hidden;
+  z-index: 999;
 
   > h1 {
     font-size: 18px;
@@ -24,12 +27,12 @@ export const Container = styled.div`
   }
 
   > span {
+    position: absolute;
     top: 5px;
     right: 10px;
-    font-size: 25px;
+    font-size: 30px;
     cursor: pointer;
     transition: 0.2s;
-    position: absolute;
 
     :hover {
       color: var(--dark);

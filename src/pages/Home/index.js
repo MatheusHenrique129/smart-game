@@ -5,10 +5,14 @@ import {
   ContentModal,
   Description,
   Footer,
+  FooterContent,
+  FooterInfo,
   GameCard,
   GameInfo,
   Header,
   Logo,
+  PlatformModal,
+  PriceModal,
   StoreMap,
   StoresModal,
 } from "./styles";
@@ -51,6 +55,8 @@ function Home() {
 
   const [qrCode, setQrCode] = useState("");
 
+  const [stores, setStores] = useState([]);
+
   const [gameModal, setGameModal] = useState([]);
 
   const [reload, setReload] = useState(null);
@@ -79,8 +85,8 @@ function Home() {
     }
   };
 
-  const handleCompra = async () => {
-    setOpenModalGame(false);
+  const handleBuy = async () => {
+    setOpenModalGame(true);
 
     setIsLoading(true);
 
@@ -98,12 +104,21 @@ function Home() {
     setGames(response.data);
   };
 
+  const loadStores = async () => {
+    const response = await api.get("/stores");
+
+    setStores(response.data);
+  };
+
   useEffect(() => {
     setIsLoading(true);
 
     loadGames();
+    loadStores();
 
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 900);
   }, [reload]);
 
   const handleReload = () => {
@@ -120,7 +135,7 @@ function Home() {
       setOpenModalGame(true);
 
       setIsLoading(false);
-    }, 800);
+    }, 1000);
 
     const response = await api.get(`/games/${id}`);
 
@@ -223,18 +238,35 @@ function Home() {
                 </>
               )}
             </StoresModal>
+            <PlatformModal>
+              {gameModal.Platforms && (
+                <>
+                  <h4>Plataformas</h4>
+                  {gameModal.Platforms.map((p) => (
+                    <GameInfo>° {p.name}</GameInfo>
+                  ))}
+                </>
+              )}
+            </PlatformModal>
+            <PriceModal>
+              <img src={qrCode} alt="QRCode do Desconto" />
+              <button
+                onClick={() => {
+                  handleModalGame(gameModal.id);
+                  qrCodeGenerate(gameModal.id);
+                  handleBuy(gameModal.price, gameModal.id);
+                }}
+              >
+                COMPRAR
+              </button>
+              <GameInfo>{gameModal.price}</GameInfo>
+            </PriceModal>
           </ContentModal>
         </Modal>
       )}
       <Container>
         <Header>
-          <Logo
-            src={logo}
-            onClick={
-              (() => handleCompra(gameModal.price, gameModal.id),
-              { handleReload })
-            }
-          />
+          <Logo src={logo} onClick={() => handleReload} />
           <InputSearch handler={handleSearch} value={search} />
         </Header>
         <Content>
@@ -250,9 +282,46 @@ function Home() {
                 qrCodeGenerate={qrCodeGenerate}
               />
             ))}
+
+            <Game
+              key={gameModal.id}
+              game={gameModal}
+              handleModalGame={handleModalGame}
+              qrCodeGenerate={qrCodeGenerate}
+            />
           </CardContainer>
 
-          <Footer></Footer>
+          <Footer>
+            <FooterContent>
+              <FooterInfo>
+                <GameInfo>
+                  <h2>Telefone</h2>
+                </GameInfo>
+                <GameInfo>
+                  <h3>(11) 4002-8922</h3>
+                </GameInfo>
+              </FooterInfo>
+              <FooterInfo>
+                <GameInfo>
+                  <h2>Nossas Lojas</h2>
+                </GameInfo>
+
+                {stores.map((s) => (
+                  <GameInfo>
+                    <h3>{s.name}</h3>
+                  </GameInfo>
+                ))}
+              </FooterInfo>
+              <FooterInfo>
+                <GameInfo>
+                  <h3>E-mail do Desonvolvedor</h3>
+                </GameInfo>
+                <GameInfo>
+                  <h3>matheustennant@gmail.com</h3>
+                </GameInfo>
+              </FooterInfo>
+            </FooterContent>
+          </Footer>
         </Content>
       </Container>
     </>
