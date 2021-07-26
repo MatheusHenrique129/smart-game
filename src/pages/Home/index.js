@@ -282,13 +282,6 @@ function Home() {
                 qrCodeGenerate={qrCodeGenerate}
               />
             ))}
-
-            <Game
-              key={gameModal.id}
-              game={gameModal}
-              handleModalGame={handleModalGame}
-              qrCodeGenerate={qrCodeGenerate}
-            />
           </CardContainer>
 
           <Footer>
