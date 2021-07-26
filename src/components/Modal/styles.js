@@ -17,9 +17,9 @@ export const ModalContainer = styled.section`
   overflow-y: auto;
   width: 75%;
   height: 80vh;
+  padding: 10px;
   min-width: 500px;
   min-height: 250px;
-  padding: 8px;
   position: relative;
   border-radius: 4px;
   border: 1px solid #fff;
@@ -42,6 +42,7 @@ export const ModalContainer = styled.section`
   }
 
   > header {
+    color: #fff;
     font-size: 2.3em;
     margin: 0px 20px;
     font-weight: bold;

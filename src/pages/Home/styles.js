@@ -50,7 +50,6 @@ export const Content = styled.div`
 export const ContentModal = styled.div`
   display: grid;
   grid-template-areas: "image image description description" "image image platform price" "image image store price";
-
   gap: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -71,7 +70,7 @@ export const Description = styled.div`
   background-color: aqua;
 `;
 
-export const HoldText = styled.div`
+export const GameInfo = styled.div`
   padding: 20px;
   background-color: blueviolet;
 `;
@@ -94,7 +93,16 @@ export const StoresModal = styled.div`
   }
 `;
 
+export const StoreMap = styled.iframe`
+  width: 73vw;
+  height: 68vh;
+  border: none;
+  margin-top: 15px;
+  border-radius: 10px;
+`;
+
 export const CardContainer = styled.div`
+  color: #fff;
   padding: 10px;
   overflow-y: auto;
   margin-left: auto;
@@ -112,7 +120,6 @@ export const GameCard = styled.article`
 
   :hover {
     transform: scale(1.08);
-    /* box-shadow: 0px 0px 50px 15px #fff; */
   }
 
   > div {
@@ -136,7 +143,7 @@ export const GameCard = styled.article`
     gap: 10px;
 
     > strong {
-      color: #f12354;
+      color: var(--primary);
       font-size: 1.6em;
       text-align: center;
     }

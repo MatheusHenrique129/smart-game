@@ -6,9 +6,10 @@ import {
   Description,
   Footer,
   GameCard,
+  GameInfo,
   Header,
-  HoldText,
   Logo,
+  StoreMap,
   StoresModal,
 } from "./styles";
 
@@ -19,8 +20,9 @@ import Modal from "../../components/Modal";
 import { api } from "../../services/api";
 import InputSearch from "../../components/InputSearch";
 import Loading from "../../components/Loading";
+import QRCode from "qrcode";
 
-function Game({ game, handleModalGame }) {
+function Game({ game, handleModalGame, qrCodeGenerate }) {
   return (
     <GameCard>
       <div>
@@ -33,6 +35,7 @@ function Game({ game, handleModalGame }) {
           <button
             onClick={() => {
               handleModalGame(game.id);
+              qrCodeGenerate(game.id);
             }}
           >
             COMPRAR
@@ -46,6 +49,8 @@ function Game({ game, handleModalGame }) {
 function Home() {
   const [games, setGames] = useState([]);
 
+  const [qrCode, setQrCode] = useState("");
+
   const [gameModal, setGameModal] = useState([]);
 
   const [reload, setReload] = useState(null);
@@ -54,13 +59,25 @@ function Home() {
 
   const [openModalGame, setOpenModalGame] = useState(false);
 
-  const [showGame, setShowGame] = useState(false);
+  const [mapInModal, setMapInModal] = useState([]);
+
+  const [modalMap, setModalMap] = useState(false);
 
   const [message, setMessage] = useState(false);
 
   const [search, setSearch] = useState("");
 
   const cardRef = useRef();
+
+  const qrCodeGenerate = async (gameId) => {
+    try {
+      const response = await QRCode.toDataURL(`/games/${gameId}`);
+
+      setQrCode(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleCompra = async () => {
     setOpenModalGame(false);
@@ -90,7 +107,6 @@ function Home() {
   }, [reload]);
 
   const handleReload = () => {
-    setShowGame(false);
     setIsLoading(false);
     setGames([]);
     setSearch("");
@@ -130,10 +146,26 @@ function Home() {
         params: { search: e.target.value },
       });
 
+      console.log(response);
+
       setGames(response.data);
     } catch (error) {
       alert(error);
       console.log(error);
+    }
+  };
+
+  const handleMaps = async (id) => {
+    setOpenModalGame(false);
+
+    setModalMap(true);
+
+    try {
+      const response = await api.get(`/stores/${id}`);
+
+      setMapInModal(response.data);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -149,31 +181,45 @@ function Home() {
           handleClose={() => setMessage(false)}
         />
       )}
+      {modalMap && (
+        <Modal
+          title={mapInModal.name}
+          handleClose={() => {
+            setModalMap(false);
+            setOpenModalGame(true);
+          }}
+        >
+          <StoreMap src={mapInModal.map_location} />
+        </Modal>
+      )}
       {openModalGame && (
         <Modal
           title={gameModal.name}
-          handleClose={() => setOpenModalGame(false)}
+          handleClose={() => {
+            setOpenModalGame(false);
+          }}
         >
           <ContentModal>
             <img src={gameModal.image} alt="Imagem do Jogo" />
             <Description>
-              <HoldText>
+              <GameInfo>
                 <h2>Descrição:</h2>
-              </HoldText>
+              </GameInfo>
               <p>{gameModal.description}</p>
-              <GameInfo></GameInfo>
             </Description>
             <StoresModal>
               {gameModal.Stores && (
                 <>
                   <h4>Lojas Disponíveis:</h4>
-                  <p>
-                    {gameModal.Stores.map((s) => (
-                      <HoldText>
-                        <h2>Descrição:</h2>
-                      </HoldText>
-                    ))}
-                  </p>
+                  {gameModal.Stores.map((s) => (
+                    <GameInfo
+                      onClick={() => {
+                        handleMaps(s.id);
+                      }}
+                    >
+                      - {s.name}
+                    </GameInfo>
+                  ))}
                 </>
               )}
             </StoresModal>
@@ -197,7 +243,12 @@ function Home() {
               search.length > 3 &&
               "Nenhum jogo encontrado"}
             {games.map((g) => (
-              <Game key={g.id} game={g} handleModalGame={handleModalGame} />
+              <Game
+                key={g.id}
+                game={g}
+                handleModalGame={handleModalGame}
+                qrCodeGenerate={qrCodeGenerate}
+              />
             ))}
           </CardContainer>
 
