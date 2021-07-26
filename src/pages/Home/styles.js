@@ -9,31 +9,31 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  position: fixed;
   width: 100%;
   height: 55px;
   display: flex;
+  position: fixed;
   align-items: center;
-  justify-content: space-around;
   background-color: #563434;
+  justify-content: space-around;
 
   > p {
     color: #fff;
-    text-transform: uppercase;
     font-weight: bold;
     text-align: center;
+    text-transform: uppercase;
   }
 `;
 
 export const Logo = styled.img`
   width: 100px;
   height: 100px;
+  cursor: pointer;
   margin-top: 40px;
+  transition: 0.2s;
   margin-left: 50px;
   margin-right: 18px;
   border-radius: 100%;
-  cursor: pointer;
-  transition: 0.2s;
 
   :hover {
     transform: scale(1.1);
@@ -42,23 +42,23 @@ export const Logo = styled.img`
 
 export const Content = styled.div`
   width: 1300px;
-  padding: 0px 10px 0px 10px;
   overflow-y: auto;
   margin-top: 55px;
+  padding: 0px 10px 0px 10px;
 `;
 
 export const ContentModal = styled.div`
-  display: grid;
-  grid-template-areas: "image image description description" "image image platform price" "image image store price";
   gap: 20px;
+  display: grid;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
+  grid-template-areas: "image image description description" "image image platform price" "image image store price";
 
   > img {
     width: 340px;
-    max-height: 750px;
     grid-area: image;
+    max-height: 750px;
     border-radius: 5px;
     box-shadow: 3px 3px 3px #000;
   }
@@ -74,11 +74,10 @@ export const GameInfo = styled.div`
 
 export const StoresModal = styled.div`
   grid-area: store;
-  background-color: antiquewhite;
 
   > h3 {
-    transition: 0.2s;
     cursor: pointer;
+    transition: 0.2s;
 
     :hover {
       color: var(--light);
@@ -91,16 +90,16 @@ export const StoresModal = styled.div`
 `;
 
 export const PlatformModal = styled.div`
-  grid-area: platform;
+  gap: 5px;
   display: flex;
+  grid-area: platform;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
 `;
 
 export const PriceModal = styled.div`
-  grid-area: price;
   display: grid;
+  grid-area: price;
   align-items: center;
   justify-content: center;
   grid-template-areas: "code code" "button text";
@@ -113,9 +112,9 @@ export const PriceModal = styled.div`
   }
 
   > h1 {
+    padding: 5px;
     grid-area: text;
     background-color: #000000;
-    padding: 5px;
     border-radius: 0 5px 5px 0;
   }
 
@@ -137,19 +136,19 @@ export const StoreMap = styled.iframe`
 
 export const CardContainer = styled.div`
   color: #fff;
+  display: grid;
   padding: 10px;
   overflow-y: auto;
   margin-left: auto;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
   background-color: #15181dee;
+  grid-template-columns: 25% 25% 25% 25%;
 `;
 
 export const GameCard = styled.article`
   width: 93%;
-  margin: 20px 50px 20px 20px;
   border-radius: 4px;
+  margin: 20px 50px 20px 20px;
   transition: transform 450ms;
 
   :hover {
@@ -163,23 +162,23 @@ export const GameCard = styled.article`
     > img {
       width: 100%;
       height: 370px;
+      background-color: #151dcc11;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
-      background-color: #151dcc11;
     }
   }
 
   > section {
-    margin-top: 8px;
+    gap: 10px;
     padding: 10px;
     display: flex;
+    margin-top: 8px;
     flex-direction: column;
-    gap: 10px;
 
     > strong {
-      color: var(--primary);
       font-size: 1.6em;
       text-align: center;
+      color: var(--primary);
     }
 
     > p {

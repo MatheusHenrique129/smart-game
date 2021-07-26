@@ -86,7 +86,7 @@ function Home() {
   };
 
   const handleBuy = async () => {
-    setOpenModalGame(true);
+    setOpenModalGame(false);
 
     setIsLoading(true);
 
@@ -243,7 +243,7 @@ function Home() {
                 <>
                   <h4>Plataformas</h4>
                   {gameModal.Platforms.map((p) => (
-                    <GameInfo>° {p.name}</GameInfo>
+                    <h3> {p.name}</h3>
                   ))}
                 </>
               )}
@@ -259,7 +259,7 @@ function Home() {
               >
                 COMPRAR
               </button>
-              <GameInfo>{gameModal.price}</GameInfo>
+              <GameInfo>R$ {gameModal.price},00</GameInfo>
             </PriceModal>
           </ContentModal>
         </Modal>
@@ -288,22 +288,24 @@ function Home() {
             <FooterContent>
               <FooterInfo>
                 <GameInfo>
-                  <h2>Telefone</h2>
-                </GameInfo>
-                <GameInfo>
-                  <h3>(11) 4002-8922</h3>
-                </GameInfo>
-              </FooterInfo>
-              <FooterInfo>
-                <GameInfo>
                   <h2>Nossas Lojas</h2>
                 </GameInfo>
-
                 {stores.map((s) => (
                   <GameInfo>
                     <h3>{s.name}</h3>
                   </GameInfo>
                 ))}
+              </FooterInfo>
+              <FooterInfo>
+                <GameInfo>
+                  <h2>Telefones Para Contato</h2>
+                </GameInfo>
+                <GameInfo>
+                  <h3>(11) 94834-8483</h3>
+                </GameInfo>
+                <GameInfo>
+                  <h3>(11) 4002-8922</h3>
+                </GameInfo>
               </FooterInfo>
               <FooterInfo>
                 <GameInfo>

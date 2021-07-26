@@ -1,13 +1,12 @@
 import { createGlobalStyle } from "styled-components";
-import fundo from "./assets/fundo.jpg";
 
 export const GlobalStyles = createGlobalStyle`
 
 :root{
     --dark: #15181d;
-    --darkGray: #2b2e35;
     --light: #EDF2F4;
     --primary: #bcbc2c;
+    --darkGray: #2b2e35;
     --secondary: #D90429;
   }
 
@@ -19,10 +18,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body{
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    background-image: url(${fundo});
   }
 
   ::-webkit-scrollbar{
@@ -41,13 +39,13 @@ export const GlobalStyles = createGlobalStyle`
 
   button {
     padding: 10px;
-    font-weight: bold;
-    color: var(--light);
-    background-color: var(--darkGray);
-    border: 1px solid var(--light);
-    border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    color: var(--light);
     transition: .2s ease-in-out;
+    border: 1px solid var(--light);
+    background-color: var(--darkGray);  
 
     :hover{
       background-color: var(--primary);
@@ -58,9 +56,9 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     :disabled{
+      color: var(--darkGray);
       background-color: transparent;
       border: 1px solid var(--darkGray);
-      color: var(--darkGray);
     }
   }
 `;
