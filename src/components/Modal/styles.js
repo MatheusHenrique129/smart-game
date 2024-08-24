@@ -14,11 +14,11 @@ export const Animation = keyframes`
 `;
 
 export const Overlay = styled.div`
-  z-index: 9;
-  width: 100vw;
-  height: 100vh;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
   background-color: #2b2e35cc;
   justify-content: center;

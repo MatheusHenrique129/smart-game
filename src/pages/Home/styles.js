@@ -1,21 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  background-color: var(--dark);
-`;
-
 export const Header = styled.header`
   width: 100%;
-  height: 55px;
+  height: 80px;
+  z-index: 9;
   display: flex;
   position: fixed;
   align-items: center;
-  background-color: #563434;
+  background-color: #010a19;
   justify-content: space-around;
+  border-bottom: 1.5px solid #ffffff;
 
   > p {
     color: #fff;
@@ -40,11 +34,29 @@ export const Logo = styled.img`
   }
 `;
 
+export const Container = styled.div`
+  width: 100%;
+  height: auto;
+  padding-top: 110px;
+`;
+
 export const Content = styled.div`
-  width: 1300px;
-  overflow-y: auto;
-  margin-top: 55px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+  justify-content: center;
   padding: 0px 10px 0px 10px;
+`;
+
+export const CardContent = styled.div`
+  width: 80%;
+  color: #fff;
+  display: grid;
+  max-width: 1920px;
+  justify-content: center;
+  grid-template-columns: 25% 25% 25% 25%;
 `;
 
 export const ContentModal = styled.div`
@@ -66,10 +78,6 @@ export const ContentModal = styled.div`
 
 export const Description = styled.div`
   grid-area: description;
-`;
-
-export const GameInfo = styled.div`
-  padding: 20px;
 `;
 
 export const StoresModal = styled.div`
@@ -134,89 +142,22 @@ export const StoreMap = styled.iframe`
   border-radius: 10px;
 `;
 
-export const CardContainer = styled.div`
-  color: #fff;
-  display: grid;
-  padding: 10px;
-  overflow-y: auto;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #15181dee;
-  grid-template-columns: 25% 25% 25% 25%;
-`;
-
-export const GameCard = styled.article`
-  width: 93%;
-  border-radius: 4px;
-  margin: 20px 50px 20px 20px;
-  transition: transform 450ms;
-
-  :hover {
-    transform: scale(1.08);
-  }
-
-  > div {
-    gap: 10px;
-    border-radius: 4px;
-
-    > img {
-      width: 100%;
-      height: 370px;
-      background-color: #151dcc11;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-    }
-  }
-
-  > section {
-    gap: 10px;
-    padding: 10px;
-    display: flex;
-    margin-top: 8px;
-    flex-direction: column;
-
-    > strong {
-      font-size: 1.6em;
-      text-align: center;
-      color: var(--primary);
-    }
-
-    > p {
-      color: #fff;
-      font-size: 1.3em;
-      font-weight: 600;
-      padding: 10px 10px;
-      border-left: 2px solid var(--primary);
-    }
-
-    > div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    > button {
-      width: 250px;
-      font-style: italic;
-    }
-  }
-`;
-
 export const Footer = styled.footer`
-  color: #fff;
+  color: var(--dark);
   width: 100%;
-  display: flex;
-  padding: 30px 0px;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--darkGray);
+  min-height: 100%;
+  padding: 30px 30px 0px 30px;
+
+  background-color: var(--footerPrimary);
 `;
 
 export const FooterContent = styled.div`
-  width: 1200px;
-  display: flex;
+  width: auto;
+  display: grid;
+  // pading: 152px;
   align-items: flex-start;
   justify-content: space-around;
+  grid-template-columns: 33% 33% 33%;
 `;
 
 export const FooterInfo = styled.div`
@@ -224,4 +165,38 @@ export const FooterInfo = styled.div`
   gap: 15px;
   display: flex;
   flex-direction: column;
+`;
+
+export const GameInfo = styled.div`
+  padding: 20px;
+
+  > p {
+    font-size: 10px;
+  }
+`;
+
+export const PoweredBy = styled.div`
+  padding: 10px;
+
+  > p {
+    font-size: 10px;
+  }
+
+  > h3 {
+    font-size: 20px;
+  }
+`;
+
+export const FooterCopyright = styled.div`
+  width: auto;
+  height: 38px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-top: 1.5px solid var(--dark);
+
+  > p {
+    font-size: 14px;
+  }
 `;

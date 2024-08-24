@@ -1,13 +1,14 @@
 import {
-  CardContainer,
+  CardContent,
   Container,
   Content,
   ContentModal,
   Description,
   Footer,
   FooterContent,
+  FooterCopyright,
   FooterInfo,
-  GameCard,
+  PoweredBy,
   GameInfo,
   Header,
   Logo,
@@ -23,32 +24,9 @@ import Alert from "../../components/Alert";
 import Modal from "../../components/Modal";
 import { api } from "../../services/api";
 import InputSearch from "../../components/InputSearch";
+import GameCard from "../../components/GameCard";
 import Loading from "../../components/Loading";
 import QRCode from "qrcode";
-
-function Game({ game, handleModalGame, qrCodeGenerate }) {
-  return (
-    <GameCard>
-      <div>
-        <img src={game.image || logo} alt="Imagem do jogo" />
-      </div>
-      <section>
-        <strong>{game.name}</strong>
-        <p>Preço: R$ {game.price}</p>
-        <div>
-          <button
-            onClick={() => {
-              handleModalGame(game.id);
-              qrCodeGenerate(game.id);
-            }}
-          >
-            COMPRAR
-          </button>
-        </div>
-      </section>
-    </GameCard>
-  );
-}
 
 function Home() {
   const [games, setGames] = useState([]);
@@ -264,61 +242,67 @@ function Home() {
           </ContentModal>
         </Modal>
       )}
+
+      <Header>
+        <Logo src={logo} onClick={() => handleReload} />
+        <InputSearch handler={handleSearch} value={search} />
+      </Header>
+
       <Container>
-        <Header>
-          <Logo src={logo} onClick={() => handleReload} />
-          <InputSearch handler={handleSearch} value={search} />
-        </Header>
         <Content>
-          <CardContainer ref={cardRef} onScroll={cardScrollObserver}>
-            {games.length === 0 &&
-              search.length > 3 &&
-              "Nenhum jogo encontrado"}
+          <CardContent ref={cardRef} onScroll={cardScrollObserver}>
+            {games.length === 0 && search.length >= 1 && (
+              <b>Nenhum resultado encontrado :(</b>
+            )}
             {games.map((g) => (
-              <Game
+              <GameCard
                 key={g.id}
                 game={g}
                 handleModalGame={handleModalGame}
                 qrCodeGenerate={qrCodeGenerate}
               />
             ))}
-          </CardContainer>
-
-          <Footer>
-            <FooterContent>
-              <FooterInfo>
-                <GameInfo>
-                  <h2>Nossas Lojas</h2>
-                </GameInfo>
-                {stores.map((s) => (
-                  <GameInfo>
-                    <h3>{s.name}</h3>
-                  </GameInfo>
-                ))}
-              </FooterInfo>
-              <FooterInfo>
-                <GameInfo>
-                  <h2>Telefones Para Contato</h2>
-                </GameInfo>
-                <GameInfo>
-                  <h3>(11) 94834-8483</h3>
-                </GameInfo>
-                <GameInfo>
-                  <h3>(11) 4002-8922</h3>
-                </GameInfo>
-              </FooterInfo>
-              <FooterInfo>
-                <GameInfo>
-                  <h3>E-mail do Desonvolvedor</h3>
-                </GameInfo>
-                <GameInfo>
-                  <h3>matheustennant@gmail.com</h3>
-                </GameInfo>
-              </FooterInfo>
-            </FooterContent>
-          </Footer>
+          </CardContent>
         </Content>
       </Container>
+
+      <Footer>
+        <FooterContent>
+          <FooterInfo>
+            <PoweredBy>
+              <p>Powered by</p>
+              <h3>Smart Games</h3>
+            </PoweredBy>
+          </FooterInfo>
+          <FooterInfo>
+            <GameInfo>
+              <h2>Nossas Lojas</h2>
+            </GameInfo>
+            {stores.map((s) => (
+              <GameInfo>
+                <h3>{s.name}</h3>
+              </GameInfo>
+            ))}
+          </FooterInfo>
+          <FooterInfo>
+            <GameInfo>
+              <h2>Telefones Para Contato</h2>
+            </GameInfo>
+            <GameInfo>
+              <h3>(11) 94834-8483</h3>
+            </GameInfo>
+            <GameInfo>
+              <h3>(11) 4002-8922</h3>
+            </GameInfo>
+          </FooterInfo>
+        </FooterContent>
+
+        <FooterCopyright>
+          <p className="text-gray-400 text-xs font-bold opacity-75">
+            &copy; 2024 Copyright Matheus Henrique Santos da Silva
+          </p>
+        </FooterCopyright>
+      </Footer>
     </>
   );
 }

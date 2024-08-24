@@ -3,11 +3,15 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 
 :root{
-    --dark: #15181d;
-    --light: #EDF2F4;
+    --dark: #010a19;
+    --light: #74dd78;
     --primary: #bcbc2c;
     --darkGray: #2b2e35;
     --secondary: #D90429;
+    --lightGray: #f1f1f1;
+    --textPrimary: #010a19;
+    --buttonPrimary: #ff6900;
+    --footerPrimary: #f1f1f1;
   }
 
   * {
@@ -15,40 +19,42 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     outline: 0;    
     box-sizing: border-box;
+    font-family: Roboto, sans-serif;  
   }
 
   body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-color: var(--dark)
   }
 
   ::-webkit-scrollbar{
-    width: 5px;
+    width: 10px;
     background-color: var(--darkGray);
   }
 
   ::-webkit-scrollbar-track{
-    background-color: var(--darkGray);
+    background-color: var(--lightGray);
+    background-clip: content-box;
   }
 
   ::-webkit-scrollbar-thumb{
-    border-radius: 2px;
+    border-radius: 50px;
     background-color: var(--light);
   }
 
   button {
+    border: none;
     padding: 10px;
     cursor: pointer;
-    font-weight: bold;
     border-radius: 4px;
-    color: var(--light);
+    color: var(--textPrimary);
     transition: .2s ease-in-out;
-    border: 1px solid var(--light);
-    background-color: var(--darkGray);  
+    background-color: var(--light);  
 
     :hover{
-      background-color: var(--primary);
+      background-color: var(--buttonPrimary);
     }
 
     :active{

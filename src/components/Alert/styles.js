@@ -14,7 +14,7 @@ export const Container = styled.div`
   border-radius: 5px;
   white-space: nowrap;
   overflow: hidden;
-  z-index: 999;
+  z-index: 11;
 
   > h1 {
     font-size: 18px;

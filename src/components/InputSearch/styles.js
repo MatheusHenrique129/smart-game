@@ -10,27 +10,29 @@ export const Container = styled.div`
   > input {
     border: 0;
     padding-left: 45px;
-    padding-right: 10px;
-    border-radius: 3px;
-    font-family: sans-serif;
+    padding-right: 8px;
+    border-radius: 50px;
     width: 150px;
     height: 40px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: lighter;
     transition: width 0.4s ease-in-out;
   }
 
   > input:focus {
     width: 400px;
+    border: 1.5px solid var(--light);
+    box-shadow: 1px 1px 10px var(--light);
   }
 
   > input:focus + svg {
-    color: var(--primary);
+    color: var(--light);
   }
 `;
 
 export const IconSearch = styled(FaSearch)`
   position: absolute;
-  left: 10px;
+  left: 12px;
   font-size: 20px;
   color: var(--darkGray);
   cursor: pointer;

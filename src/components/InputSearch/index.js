@@ -10,7 +10,7 @@ function InputSearch({ id, label, value, handler, ...rest }) {
         id={id}
         type="search"
         {...rest}
-        placeholder="Procurar no SmartGames"
+        placeholder="Digite o que você procura"
         value={value}
         onChange={handler}
         ref={inputRef}

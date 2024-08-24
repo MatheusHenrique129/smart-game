@@ -11,9 +11,9 @@ export const Container = styled.div`
   color: #fff;
   z-index: 99;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
   flex-direction: column;
   background-color: #333c;
