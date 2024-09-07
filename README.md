@@ -1,34 +1,45 @@
-<p align="center">
-    <video src="./src/assets/videos/layout.mp4" type="video/mp4"></video>
-</p>
+# Smart Games
 
-# Smart Games Web
+The Smart Games project was designed to be a complete platform for a game store, covering both the front-end (user interface), the back-end (API for data management), and a mobile app, all interconnected to provide a seamless and integrated experience.
 
-This Front-End project was developed for the game store of the fictitious company Smart Games as part of a training exercise to enhance my React skills. The main objective was to create a modern and responsive user interface that offers a pleasant and intuitive browsing experience.
+The goal of Smart Games is to offer users a simple and modern way to browse, search, and purchase games, with features like search filters, store listings, and categorization by platforms. Additionally, the mobile app offers a dedicated interface for users who prefer to access the store directly from their mobile devices.
 
-The application allows users to explore the game library, view details such as name, price, and product image, and make purchases easily. Features such as category search filters and a QR Code system to simplify the purchase process were included to enrich the user experience.
+### Main Technologies Used
 
-Throughout the development, I focused on applying best coding practices, such as componentization, to ensure clean and scalable code. Additionally, the project was structured to allow for easy integration of new features in the future.
+#### **Front-End**:
 
-## Tech Stack
+Built using React, the front-end is fully responsive, providing a pleasant experience on both mobile and desktop devices.
 
-<!--- # "Verify icons availability here https://github.com/tandpfun/skill-icons" -->
+##### Tech Used:
 
 [![My Skills](https://skillicons.dev/icons?i=js,react,styledcomponents,jest,npm)](https://skillicons.dev)
 
-## Cloning
+#### **Back-End**:
 
-How to clone your project
+The API is built using Node.js, Express, and Sequelize to communicate with the MySQL database. It manages the routes, validations, and business logic of the platform.
+
+##### Tech Used:
+
+[![My Skills](https://skillicons.dev/icons?i=js,nodejs,express,sequelize,npm,mysql)](https://skillicons.dev)
+
+#### **Mobile App**:
+
+Developed using Kotlin, the mobile app is designed to deliver an optimized and fast store experience directly on Android devices, with simple and intuitive navigation.
+
+##### Tech Used:
+
+[![My Skills](https://skillicons.dev/icons?i=androidstudio,kotlin)](https://skillicons.dev)
+
+## Project Folder Structure
 
 ```bash
-git clone https://github.com/MatheusHenrique129/smart-game.git
+smart-games/
+│
+├── web/     # Web application in React
+├── backend/      # API in Node.js with Express
+├── mobile/       # Android app in Kotlin
+└── README.md     # Main project documentation
 ```
-
-## Getting Started
-
-1. **Install Dependencies**: `npm install`
-2. **Start Project**: `npm start`
-3. **Install the Backend Setup**: Install the project backend to this [path](https://github.com/MatheusHenrique129/smart-game-backend)
 
 ### Documentations that might help
 
