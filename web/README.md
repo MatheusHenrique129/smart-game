@@ -31,12 +31,12 @@ git clone https://github.com/MatheusHenrique129/smart-game.git
 npm install
 ```
 
-3. **Start Project**:
+2. **Start Project**:
 ```bash
 npm start
 ```
 
-5. **Install the Backend Setup**: Install the project backend to this [path](../backend/README.md).
+3. **Install the Backend Setup**: Install the project backend to this [path](../backend/README.md).
 
 ### Documentations that might help
 
