@@ -29,7 +29,8 @@ npm install
 2. **Database Setup**:
 
 - Import the MySQL database.
-  Update the `database.json` file to match your local database settings: - type: If you're not using MySQL, adjust it accordingly. - host, username, password, database: Update with your environment credentials.
+  Update the `database.json` file to match your local database settings:
+  - type: If you're not using MySQL, adjust it accordingly. - host, username, password, database: Update with your environment credentials.
 
 3. **Create the Database**:
 
