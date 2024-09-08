@@ -26,12 +26,19 @@ git clone https://github.com/MatheusHenrique129/smart-game.git
 
 ## Getting Started
 
-1. **Install Dependencies**: `npm install`
-2. **Start Project**: `npm start`
-3. **Install the Backend Setup**: Install the project backend to this [path](../backend/README.md)
+1. **Install Dependencies**:
+```bash
+npm install
+```
+
+3. **Start Project**:
+```bash
+npm start
+```
+
+5. **Install the Backend Setup**: Install the project backend to this [path](../backend/README.md).
 
 ### Documentations that might help
 
-[📝 How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
-
-[💾 Commit pattern](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
+- [📝 How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
+- [💾 Commit pattern](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
